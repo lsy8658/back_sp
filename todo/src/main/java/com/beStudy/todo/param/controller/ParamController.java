@@ -31,7 +31,8 @@ import java.util.Map;
 //
 //    @RequestMapping(method=RequestMethod.POST, value="/json")
 //    public List<Map<String, String>> postJsonIndex (
-//           @RequestBody ParamRequest request, @RequestParam(value="query", required=false, defaultValue="no value") String query
+//           @RequestBody ParamRequest request, 
+//           @RequestParam(value="query", required=false, defaultValue="no value") String query
 //    ) {
 //        return List.of(
 //                Map.of("title", request.getTitle()),

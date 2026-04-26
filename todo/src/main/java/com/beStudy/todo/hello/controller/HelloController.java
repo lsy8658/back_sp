@@ -81,10 +81,6 @@ public class HelloController {
 //        }
 //
 //
-//
-//
-//
-//
 //        @GetMapping("/hello")
 //        public String hello () {
 //            return "hello spring~!";
@@ -111,7 +107,7 @@ public class HelloController {
 //        public Map<String, String> getJson() {
 //            return Map.of("message","응답 성공", "status", "200");
 //        }
-//
+
 //        @GetMapping("/jsonList")
 //        public List<Map<String, String>> getJsonList () {
 //           return List.of(
