@@ -43,7 +43,7 @@ public class MemoCRUD {
 //        return List.of(Map.of("message","json 배열"));
 //    }
 //
-//    //    @PutMapping
+//    @PutMapping
 //    @RequestMapping(method=RequestMethod.PUT, value="infoPut")
 //    public Map<String, String> putIndex () {
 //        return Map.of("Map.of", "json");
