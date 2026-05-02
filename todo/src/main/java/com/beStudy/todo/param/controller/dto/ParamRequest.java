@@ -7,5 +7,6 @@ import lombok.Setter;
 @Getter
 public class ParamRequest {
     private String title;
+    
     private String content;
 }
