@@ -61,7 +61,9 @@ import java.util.Map;
 
 /*
    근데 위와 같이 쓰면 required 임 그럴  @RequestParam(required=false) 로 해준다
+   
    하지만 이 값이 String으로 타입 지정이  에러가 남 그래서 기본값을
+
    설정해주는게 좋음 defaultValue
 */
 // @RestController
