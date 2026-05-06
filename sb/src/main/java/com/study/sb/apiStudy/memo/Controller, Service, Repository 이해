@@ -32,6 +32,7 @@ public class TestController {
 
     @GetMapping("/")
     public String home() {
-        return "index"; // ❌ html 아님, 그냥 문자열 "index" 반환
+        return "index";
+        // ❌ html 아님, 그냥 문자열 "index" 반환
     }
 }
