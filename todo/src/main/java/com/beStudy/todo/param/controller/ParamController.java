@@ -74,6 +74,7 @@ import java.util.Map;
 
         // http://127.0.0.1:8080/api/doc/html 결국에 주소를 이렇게 입력하게되면
         // 얘는 이제 restAPI가 아닙니다. html 파일을 열어줄거에요
+        
         @RequestMapping(method=RequestMethod.GET, value="/html")
         public String testHtmlPage () {
             return "demo"; // 여기에 경로
