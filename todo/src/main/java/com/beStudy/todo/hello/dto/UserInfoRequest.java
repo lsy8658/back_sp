@@ -8,6 +8,8 @@ import lombok.Setter;
 public class UserInfoRequest {
     private String name;
     private String age;
+    private String name1;
+    private String age1;
 }
 
 /*
