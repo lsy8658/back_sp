@@ -17,11 +17,10 @@ public class MemoRequestParamAndBody {
     public List<Map<String, String>> queryParam (
             @RequestParam(required=false, defaultValue = "이름 없음", value="name") String name,
             @RequestParam("age") String age,
-            @RequestParam(required=false, defaultValue ="", value="grade") String grade,
-            MemoDTO request
+            @RequestParam(required=false, defaultValue ="", value="grade") String grade
     ) {
         return List.of(
-                Map.of("RequestParam1", request.getName()),
+                Map.of("RequestParam1", name),
                 Map.of("RequestParam2", age),
                 Map.of("RequestParam3", grade)
         );

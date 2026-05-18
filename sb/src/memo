@@ -1,0 +1,52 @@
+왜 controller - service - repository로 나누었나
+
+repository는 가공을 안한 날것
+service 그 날 것을 가공
+
+------------------------------------------------------------
+List → stream() → filter/map → toList() → List 결과
+👉 Stream = 데이터를 처리하는 흐름
+👉 toList() = 그 흐름을 List로 “마무리해서 저장”
+
+👉 for문 = 내가 직접 작업하는 방식
+👉 stream = “이렇게 처리해”라고 규칙만 주는 방식
+
+Stream = for문을 대신해주는 “자동 반복 + 규칙 적용 시스템”
+
+List<Integer> result =
+    list.stream()
+        .filter(x -> x > 2)
+        .map(x -> x * 2)
+        .toList();
+
+JS에서는 배열이 엄청 많은 기능을 직접 갖고 있잖아
+근데 Java는 철학이 좀 달라서
+
+JAVA는 데이터를 "보관"하는 역할에 가까움.
+
+데이터 가공은:
+
+Stream
+
+에게 맡기는 구조야.
+
+const result = arr
+  .map(x => x * 2)
+  .filter(x => x > 3);
+
+List<Integer> result = list.stream()
+    .map(x -> x * 2)
+    .filter(x -> x > 3)
+    .toList();
+
+다시 말하면 JAVA는 List != Stream 이다. ( Stream = 가공용 파이프라인 )
+
+.toList()
+.collect()
+.forEach()
+
+같은 "최종 연산"이 와야 실제로 동작해.
+
+이걸 lazy evaluation이라고 함.
+------------------------------------------------------------
+어노테이션이란 "이 클래스/메서드는 이런 역할이야" 라고 표시하는 태그
