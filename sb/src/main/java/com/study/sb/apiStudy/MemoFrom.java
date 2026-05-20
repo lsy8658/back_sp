@@ -14,14 +14,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("/apiForm")
 public class MemoFrom {
-    @RequestMapping(
-            method= RequestMethod.POST,
-            value="/form",
-            consumes=MediaType.MULTIPART_FORM_DATA_VALUE
-    )
-    public List<Map<String, String>> formIndex (
-            @ModelAttribute MemoDTO request
-    ) {
-            return List.of(Map.of());
-    }
+//    @RequestMapping(
+//            method= RequestMethod.POST,
+//            value="/form",
+//            consumes=MediaType.MULTIPART_FORM_DATA_VALUE
+//    )
+//    public List<Map<String, String>> formIndex (
+//            @ModelAttribute MemoDTO request
+//    ) {
+//            return List.of(Map.of());
+//    }
 }
