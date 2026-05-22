@@ -26,13 +26,13 @@ public class MemoController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public Map<String, Object> getItem(@PathVariable String id) {
-        return Map.of("message", "성공~!", "data" , "data");
+        return Map.of("message", "성공~!!", "data" , "data");
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     public Map<String, Object> create () {
-        return Map.of("message", "추가성공");
+        return Map.of("message", "추가성공!");
     }
 
     @ResponseBody
