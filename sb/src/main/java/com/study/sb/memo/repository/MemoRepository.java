@@ -23,7 +23,7 @@ public class MemoRepository {
         }).findAny();
     }
 
-    // 아이템 추화
+    // 아이템 추가
     public Memo create(String content) {
         long id = memos.size();
         Memo newMemo = new Memo(id, content);
@@ -39,7 +39,17 @@ public class MemoRepository {
     }
 
     // 아이템 수정
+    public Optional <Memo> update(long id, String content) {
+        Optional<Memo> foundOne = findOne(id);
+        Optional<Memo> updatedItem = Optional.empty();
 
+        if (foundOne.isPresent()) {
+            int foundItemIndex = this.memos.indexOf(foundOne.get());
+            memos.get(foundItemIndex).setContent(content);
+            updatedItem = Optional.of(memos.get(foundItemIndex));
+        }
+        return updatedItem;
+    }
 }
 // final "한 번 값이 들어가면 다시 바꿀 수 없음"
 
