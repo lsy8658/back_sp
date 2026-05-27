@@ -44,7 +44,9 @@ public class MemoService {
 }
 
 /*
+
 isEmpty() / isPresent(): 상자 안에 알맹이가 있는지 없는지 안전하게 스캔하는 도구.
 
 get(): "나 확인했으니까 에러 안 날 거야, 알맹이 꺼내줘" 하고 꺼내는 도구.
+
 */
