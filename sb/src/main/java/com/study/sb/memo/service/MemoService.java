@@ -41,6 +41,10 @@ public class MemoService {
     public boolean delete (long id) {
         return repository.delete(id);
     }
+
+    public Optional<Memo> update (long id, String content) {
+        return repository.update(id, content);
+    }
 }
 
 /*
