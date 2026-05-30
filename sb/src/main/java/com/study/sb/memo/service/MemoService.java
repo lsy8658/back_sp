@@ -13,7 +13,9 @@ public class MemoService {
     private final MemoRepository repository;
 
     public MemoService (MemoRepository repo) {
+
         this.repository = repo;
+
     }
 
     // 전체 조회
