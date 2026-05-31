@@ -23,7 +23,9 @@ public class MemoService {
         Optional<List<Memo>> rawData = repository.findAll();
 
         if (rawData.isEmpty()) {
+
             return List.of();
+
         } else {
             return rawData.get();
         }
