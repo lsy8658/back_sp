@@ -1,6 +1,7 @@
 package com.study.sb.memo.controller;
 
 import com.study.sb.memo.dto.AddMemoRequest;
+import com.study.sb.memo.dto.UpdateMemoRequest;
 import com.study.sb.memo.entity.Memo;
 import com.study.sb.memo.service.MemoService;
 import org.apache.coyote.Request;
@@ -69,9 +70,29 @@ public Map<String, Object> findOne(@PathVariable("id") long id)
     public Map<String, Object> delete (@PathVariable("id") long id) {
 
         boolean deleteId = service.delete(id);
-        return Map.of(
-                "message",deleteId ? "성공!" : "실패",
-                "status", deleteId
-        );
+        if (deleteId == true) {
+            return Map.of(
+                    "message","성공!",
+                    "status", deleteId
+            );
+        } else {
+            return Map.of(
+                    "message", "실패",
+                    "status", deleteId
+            );
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST, value = "/{id}")
+    public Map<String, Object> update (@PathVariable("id") long id, @RequestBody
+    UpdateMemoRequest request) {
+        Optional<Memo> updatedOne = service.update(id, request.getContent());
+        if (updatedOne.isPresent()) {
+            // isPresent "이 객체 안에 값이 들어있는가?"
+            return Map.of("message", "수정 성공");
+        } else {
+            return Map.of("message", "수정 실패 /id => " + id);
+        }
     }
 }
