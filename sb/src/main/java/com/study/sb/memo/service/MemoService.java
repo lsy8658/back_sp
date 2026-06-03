@@ -1,11 +1,11 @@
 package com.study.sb.memo.service;
 
+import com.study.sb.memo.dto.MemoResponse;
 import com.study.sb.memo.entity.Memo;
 import com.study.sb.memo.repository.MemoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -19,26 +19,22 @@ public class MemoService {
     }
 
     // 전체 조회
-    public List<Memo> findAll () {
+    public List<MemoResponse> findAll () {
         Optional<List<Memo>> rawData = repository.findAll();
-
-        if (rawData.isEmpty()) {
-
-            return List.of();
-
-        } else {
-            return rawData.get();
-        }
+        
+        // 1차 가공 - 비즈니스 로직
+        return rawData.map(memos -> memos.stream().map(MemoResponse::from).toList()).orElseGet(List::of);
     }
 
     // 단일조회
-    public Optional<Memo> findOne (long id) {
-        return repository.findOne(id);
+    public Optional<MemoResponse> findOne (long id) {
+        Optional<Memo> foundItem = repository.findOne(id);
+        return foundItem.map(MemoResponse::from);
     }
 
     // 아이템 추가
-    public Memo create (String content) {
-        return repository.create(content);
+    public MemoResponse create (String content) {
+        return MemoResponse.from(repository.create(content));
     }
 
     // 아이템 삭제
@@ -46,15 +42,16 @@ public class MemoService {
         return repository.delete(id);
     }
 
-    public Optional<Memo> update (long id, String content) {
-        return repository.update(id, content);
+    // 아이템 수정
+    public Optional<MemoResponse> update (long id, String content) {
+
+        Optional<Memo> updatedItem = repository.update(id, content);
+        return updatedItem.map(MemoResponse::from);
     }
 }
 
 /*
 
-isEmpty() / isPresent(): 상자 안에 알맹이가 있는지 없는지 안전하게 스캔하는 도구.
 
-get(): "나 확인했으니까 에러 안 날 거야, 알맹이 꺼내줘" 하고 꺼내는 도구.
 
 */

@@ -1,6 +1,7 @@
 package com.study.sb.memo.controller;
 
 import com.study.sb.memo.dto.AddMemoRequest;
+import com.study.sb.memo.dto.MemoResponse;
 import com.study.sb.memo.dto.UpdateMemoRequest;
 import com.study.sb.memo.entity.Memo;
 import com.study.sb.memo.service.MemoService;
@@ -24,7 +25,7 @@ public class MemoController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public Map<String, Object> fetchAll () {
-        List<Memo> data = this.service.findAll();
+        List<MemoResponse> data = this.service.findAll();
         return Map.of("msg", "getMemoData", "data", data);
     }
 /*
@@ -38,7 +39,7 @@ public Map<String, Object> findOne(@PathVariable("id") long id)
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public Map<String, Object> findItem(@PathVariable("id") long id) {
-        Optional<Memo> foundItem = service.findOne(id);
+        Optional<MemoResponse> foundItem = service.findOne(id);
 
         if (foundItem.isPresent()) {
             // 2차 가공
@@ -58,7 +59,7 @@ public Map<String, Object> findOne(@PathVariable("id") long id)
     ) {
         String content = request.getContent();
 
-        Memo createdOne = service.create(content);
+        MemoResponse createdOne = service.create(content);
         return Map.of(
                 "message","추가 성공!",
                 "data", createdOne
@@ -87,10 +88,12 @@ public Map<String, Object> findOne(@PathVariable("id") long id)
     @RequestMapping(method = RequestMethod.POST, value = "/{id}")
     public Map<String, Object> update (@PathVariable("id") long id, @RequestBody
     UpdateMemoRequest request) {
-        Optional<Memo> updatedOne = service.update(id, request.getContent());
+        Optional<MemoResponse> updatedOne = service.update(id, request.getContent());
         if (updatedOne.isPresent()) {
-            // isPresent "이 객체 안에 값이 들어있는가?"
+            // isPresent "이 객체 안에 값이 들어있는가?
+
             return Map.of("message", "수정 성공");
+
         } else {
             return Map.of("message", "수정 실패 /id => " + id);
         }
