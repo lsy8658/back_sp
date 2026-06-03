@@ -25,8 +25,7 @@ public class MemoRequestParamAndBody {
 //                Map.of("RequestParam3", grade)
 //        );
 //    }
-//
-//
+
 //    // 제이슨 방식
 //    @RequestMapping(method = RequestMethod.POST, value="requestBodyApi")
 //    public List<Map<String, String>> requestBody (
@@ -46,6 +45,10 @@ public class MemoRequestParamAndBody {
 //        return id;
 //    }
 //
+
+
+
+
 //    @GetMapping("/path2/{id}")
 //    public Map<String, String> pathParamGetMapping(
 //            @PathVariable("id") String id
