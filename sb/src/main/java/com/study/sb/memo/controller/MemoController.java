@@ -92,7 +92,7 @@ public Map<String, Object> findOne(@PathVariable("id") long id)
         if (updatedOne.isPresent()) {
             // isPresent "이 객체 안에 값이 들어있는가?
 
-            return Map.of("message", "수정 성공");
+            return Map.of("message", "수정 성공", "update_status", "업데이트 성공");
 
         } else {
             return Map.of("message", "수정 실패 /id => " + id);

@@ -31,7 +31,7 @@ public class MemoService {
         Optional<Memo> foundItem = repository.findOne(id);
         return foundItem.map(MemoResponse::from);
     }
-    // 아이템 추가
+
     // 아이템 추가
     public MemoResponse create (String content) {
         return MemoResponse.from(repository.create(content));
