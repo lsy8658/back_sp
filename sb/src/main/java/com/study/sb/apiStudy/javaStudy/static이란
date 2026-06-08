@@ -1,0 +1,86 @@
+( static 없는 경우 )
+
+class Dog {
+    String name;
+}
+Dog d1 = new Dog();
+Dog d2 = new Dog();
+
+d1.name = "멍멍";
+d2.name = "뽀삐";
+
+각 객체가 자기만의 name을 가진다.
+
+d1 -> 멍멍
+d2 -> 뽀삐
+
+=================================================
+
+( static 있는 경우 )
+
+class Dog {
+    static int count = 0;
+}
+
+Dog d1 = new Dog();
+Dog d2 = new Dog();
+
+Dog.count++;
+Dog.count++;
+
+count는 객체마다 생기는 게 아니라 딱 1개만 존재한다.
+
+Dog.count = 2 // d1, d2가 같이 사용한다.
+
+=================================================
+class Student {
+    static int count = 0;
+
+    Student() {
+        count++;
+    }
+}
+new Student();
+new Student();
+new Student();
+
+System.out.println(Student.count);
+
+결과: 3
+
+=================================================
+
+static 메서드
+class Calculator {
+    static int add(int a, int b) {
+        return a + b;
+    }
+}
+
+객체 생성 없이 사용 가능
+
+int result = Calculator.add(3, 5);
+보통 이런 계산 기능들은 객체 상태가 필요 없어서 static으로 만든다.
+
+==================================================
+
+제일 많이 보는 예
+public static void main(String[] args)
+
+여기서 static은
+
+"객체를 만들기 전에 실행할 수 있게 해라"
+
+라는 의미다.
+
+자바는 프로그램 시작할 때 아직 객체가 없는데 main()을 실행해야 하니까 static을 붙인 것.
+
+===================================================
+
+static은 객체마다 생성되지 않고 클래스에 하나만 존재하며, 
+객체 생성 없이 접근할 수 있는 멤버를 만들 때 사용한다. 🚀
+
+암기 팁:
+
+일반 변수 = 개인 물건
+static 변수 = 학교 공용 물건

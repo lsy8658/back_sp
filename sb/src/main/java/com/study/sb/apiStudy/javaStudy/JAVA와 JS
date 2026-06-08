@@ -1,0 +1,224 @@
+1. 변수 )
+
+JavaScript
+let age = 20;
+Java
+int age = 20;
+
+차이점
+
+JS:
+
+"알아서 타입 추론"
+
+Java:
+
+"타입을 무조건 적어라"
+
+String name = "철수";
+double height = 175.5;
+boolean isStudent = true;
+
+===================================
+
+2. 함수 )
+
+JavaScript
+function add(a, b) {
+    return a + b;
+}
+Java
+public int add(int a, int b) {
+    return a + b;
+}
+
+Java는
+
+public
+int
+add
+(int a, int b)
+
+전부 써야 한다.
+
+public = 어디서든 접근 가능
+int = 반환 타입
+add = 함수 이름
+
+===================================
+
+3. 객체 )
+
+JavaScript
+const user = {
+    name: "철수",
+    age: 20
+};
+Java
+class User {
+    String name;
+    int age;
+}
+
+생성
+
+User user = new User();
+
+user.name = "철수";
+user.age = 20;
+
+JS는 객체를 바로 만들지만
+
+Java는
+
+설계도(class) 작성
+객체 생성(new)
+
+2단계를 거친다.
+
+===================================
+
+4. 클래스 )
+
+JS도 사실 클래스 있음.
+
+JavaScript
+class User {
+    constructor(name) {
+        this.name = name;
+    }
+}
+Java
+class User {
+    String name;
+
+    User(String name) {
+        this.name = name;
+    }
+}
+
+constructor
+↓
+
+Java에서는
+
+User(...)
+
+이게 생성자.
+
+===================================
+
+5. this )
+
+거의 동일
+
+JS
+this.name
+Java
+this.name
+
+똑같음.
+
+===================================
+
+6. static )
+
+JS
+
+class User {
+    static count = 0;
+}
+
+사용
+
+User.count
+
+Java
+
+class User {
+    static int count = 0;
+}
+
+사용
+
+User.count
+
+거의 동일.
+
+===================================
+
+7. 배열 )
+JS
+let arr = [1,2,3];
+Java
+int[] arr = {1,2,3};
+
+접근
+
+arr[0]
+
+똑같음.
+
+===================================
+
+8. 반복문 )
+
+
+JS
+for(let i=0; i<5; i++) {
+    console.log(i);
+}
+Java
+for(int i=0; i<5; i++) {
+    System.out.println(i);
+}
+
+거의 복붙 수준.
+
+===================================
+
+9. null )
+
+JS
+let user = null;
+
+Java
+User user = null;
+
+비슷함.
+
+===================================
+
+10. 비동기 )
+
+여기서부터 달라짐.
+
+JS
+
+async
+await
+Promise
+
+Java
+
+Thread
+ExecutorService
+CompletableFuture
+
+백엔드 하다 보면 등장.
+
+=========================================
+
+
+1. 변수
+2. 메서드
+3. 클래스
+4. 객체(new)
+5. 생성자
+6. 상속
+7. 인터페이스
+8. static
+9. 컬렉션(List, Map)
+10. 예외처리
+11. Stream
+12. Spring Boot
