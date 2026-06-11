@@ -13,3 +13,9 @@ public class HelloController {
         return "hello";
     }
 }
+
+/*
+    spring이 model이라는 것을 만들어서 넣어줍니다.
+
+    기본적으로 resources에 templates에 이름이 같은 html을 찾아서 렌더링해줍니다.
+*/
