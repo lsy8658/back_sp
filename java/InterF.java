@@ -8,3 +8,8 @@ public class InterF implements Box {
         this.name = name;
     }
 }
+interface Box2 {
+    public void getName (String name);
+}
+
+
