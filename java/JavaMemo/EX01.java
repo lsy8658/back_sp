@@ -26,7 +26,29 @@ public class EX01 {
         int score_2 = (int)score_d2; // 생략 불가능
         
         // 이렇게 생략이 불가능한걸 명시적 형변환이라고 한다.
-    
+
+
+        // 3 ) 문자열 비교
+        // String s1 = "Java";
+        // String s2 = "Java";
+        // System.out.println(s1 == s2);
+
+        // String s1 = new String("Java");
+        // String s2 = new String("Java");
+        // System.out.println(s1 == s2);  
+        
+        // 이런식으로 비교하면 안뎀 문자열 비교는 항상 equals를 사용한다.
+
+        // String s1 = "Java";
+        // String s2 = "Java";
+
+        String s1 = new String("Java");
+        String s2 = new String("Java");
+       System.out.println(s1.equals(s2));
+
+        // 문자열 값 비교는 무조건 equals()를 쓰는 습관을 들이면 돼. // Java → equals() / JavaScript → === 👍
+        // == → 주소 비교
+        // equals() → 내용 비교
     }
 }
 
