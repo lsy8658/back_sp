@@ -2,7 +2,7 @@ package JavaMemo;
 
 
 
-public class EX_Class {
+public class EX03_Class {
     class Person {
         int age;
         Person(int age) {
