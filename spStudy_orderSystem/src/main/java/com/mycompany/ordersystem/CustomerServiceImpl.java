@@ -1,7 +1,10 @@
 package com.mycompany.ordersystem;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 

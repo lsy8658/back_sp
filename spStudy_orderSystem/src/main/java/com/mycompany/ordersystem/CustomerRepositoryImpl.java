@@ -1,12 +1,15 @@
 package com.mycompany.ordersystem;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("customerRepository")
 public class CustomerRepositoryImpl implements CustomerRepository {
     private List<Customer> customers;
 
-    public CustomerRepositoryImpl () {
+    public CustomerRepositoryImpl() {
         customers = new ArrayList<>();
         Customer customer = new Customer();
         customer.setId(1);
@@ -16,31 +19,31 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         customers.add(customer);
 
         Customer customer2 = new Customer();
-        customer.setId(2);
-        customer.setName("김이");
-        customer.setAddress("부산시");
-        customer.setEmail("kim2@naver.com");
+        customer2.setId(2);
+        customer2.setName("김이");
+        customer2.setAddress("부산시");
+        customer2.setEmail("kim2@naver.com");
         customers.add(customer2);
 
         Customer customer3 = new Customer();
-        customer.setId(3);
-        customer.setName("김삼");
-        customer.setAddress("세종시");
-        customer.setEmail("kim3@naver.com");
+        customer3.setId(3);
+        customer3.setName("김삼");
+        customer3.setAddress("세종시");
+        customer3.setEmail("kim3@naver.com");
         customers.add(customer3);
 
         Customer customer4 = new Customer();
-        customer.setId(4);
-        customer.setName("김사");
-        customer.setAddress("성남시");
-        customer.setEmail("kim4@naver.com");
+        customer4.setId(4);
+        customer4.setName("김사");
+        customer4.setAddress("성남시");
+        customer4.setEmail("kim4@naver.com");
         customers.add(customer4);
 
         Customer customer5 = new Customer();
-        customer.setId(5);
-        customer.setName("김오");
-        customer.setAddress("대구시");
-        customer.setEmail("kim5@naver.com");
+        customer5.setId(5);
+        customer5.setName("김오");
+        customer5.setAddress("대구시");
+        customer5.setEmail("kim5@naver.com");
         customers.add(customer5);
     }
     public Customer findById(long id) {
@@ -48,7 +51,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
              if (customer.getId() == id) {
                  return customer;
              }
-             return null;
          }
         return null;
     }
