@@ -45,6 +45,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         customer5.setAddress("대구시");
         customer5.setEmail("kim5@naver.com");
         customers.add(customer5);
+
+        Customer customer6 = new Customer();
+        customer5.setId(6);
+        customer5.setName("김육");
+        customer5.setAddress("청주");
+        customer5.setEmail("kim6@naver.com");
+        customers.add(customer6);
     }
     public Customer findById(long id) {
          for (Customer customer : customers) {
