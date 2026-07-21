@@ -1,0 +1,4 @@
+JpaRepository<Comment, Long>는 Comment용 저장/조회/삭제 기능을 자동으로 만들어주는 역할입니다.
+
+<Comment, Long> = "Comment 테이블 다루고, PK 타입은 Long"이라는 지정이고,
+이걸 상속하면 save(), findById(), deleteById() 같은 메소드가 자동 생성됩니다.

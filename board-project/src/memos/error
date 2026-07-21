@@ -1,0 +1,16 @@
+디비버 오류 )
+
+Public Key Retrieval is not allowed
+
+이건 흔한 MySQL 연결 오류입니다, 바로 해결됩니다.
+
+DBeaver 연결 설정에서:
+
+Driver properties 탭 클릭
+allowPublicKeyRetrieval 값을 true로 설정
+useSSL은 false로 설정
+
+allowPublicKeyRetrieval: MySQL 8 이상 보안 방식 때문에 처음 연결 시 암호화 키를 따로 요청해야 하는데,
+기본값이 이걸 막아둬서 나는 오류입니다. true로 켜서 허용해주는 겁니다.
+
+useSSL: 로컬 개발 환경에선 암호화 통신(SSL) 필요 없어서 꺼두는 겁니다 (false).

@@ -1,0 +1,8 @@
+자동 재실행 설정 )
+
+1. build.gradle의 dependencies { } 블록 안에 추가:
+2. developmentOnly('org.springframework.boot:spring-boot-devtools')
+3. 우측 상단 코끼리 아이콘(Gradle 새로고침) 클릭해서 반영
+4. Settings(Ctrl+Alt+S) → Build, Execution, Deployment → Compiler 들어가서 Build project automatically 체크
+5. Settings → Advanced Settings 들어가서 Allow auto-make to start even if developed application is currently running 체크
+6. 앱 재실행(마지막 한 번만 껐다 켜기)
