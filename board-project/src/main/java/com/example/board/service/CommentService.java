@@ -22,4 +22,13 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
+    public Comment updateComment(Long id, Comment commentDetails) {
+        Comment comment = commentRepository.findById(id).orElseThrow();
+        comment.setContent(commentDetails.getContent());
+        return commentRepository.save(comment);
+    }
+
+    public void deleteComment(Long id) {
+        commentRepository.deleteById(id);
+    }
 }

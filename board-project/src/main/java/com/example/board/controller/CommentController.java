@@ -25,5 +25,13 @@ public class CommentController {
         return commentService.getAllComments();
     }
 
+    @PutMapping("/{id}")
+    public Comment update(@PathVariable("id") Long id, @RequestBody Comment commentDetails) {
+        return commentService.updateComment(id, commentDetails);
+    }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        commentService.deleteComment(id);
+    }
 }

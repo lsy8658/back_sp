@@ -2,3 +2,18 @@ JpaRepository<Comment, Long>는 Comment용 저장/조회/삭제 기능을 자동
 
 <Comment, Long> = "Comment 테이블 다루고, PK 타입은 Long"이라는 지정이고,
 이걸 상속하면 save(), findById(), deleteById() 같은 메소드가 자동 생성됩니다.
+
+===============================================================================
+
+build.gradle에 보안 관련 의존성부터 추가해야 합니다.
+
+implementation 'org.springframework.boot:spring-boot-starter-security'
+implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+spring-boot-starter-security	로그인/권한 체크 기능 제공 (누가 API 쓸 수 있는지 관리)
+
+jjwt-api/impl/jackson	JWT(로그인 토큰) 만들고 검증하는 라이브러리
+
+build.gradle 디펜던시에 추가하고 코끼리 클릭~!
