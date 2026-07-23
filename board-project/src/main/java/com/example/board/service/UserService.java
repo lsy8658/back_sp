@@ -2,6 +2,7 @@ package com.example.board.service;
 
 import com.example.board.entity.User;
 import com.example.board.repository.UserRepository;
+import com.example.board.util.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -9,13 +10,15 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
+    private final JwtUtil jwtUtil;
     public UserService(
             UserRepository userRepository,
-            PasswordEncoder passwordEncoder
+            PasswordEncoder passwordEncoder,
+            JwtUtil jwtUtil
     ) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtUtil = jwtUtil;
     }
 
     public User signUp(User user) {
@@ -25,7 +28,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public String login(String username, String rawPassword) {
+        User user = userRepository.findByUsername(username).orElseThrow();
 
+        if (!passwordEncoder.matches(rawPassword, user.getPassword())) {
+            throw new RuntimeException("비밀번호 불일치");
+        }
+
+        return jwtUtil.generateToken(username);
+    }
 
 }
 

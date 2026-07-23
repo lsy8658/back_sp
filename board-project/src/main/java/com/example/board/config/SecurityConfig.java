@@ -6,21 +6,23 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // 암호화 도구
+    public PasswordEncoder passwordEncoder () {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain filterChain (HttpSecurity http) {
+    public SecurityFilterChain filterChain (HttpSecurity http, JwtAuthFilter jwtAuthFilter) {
         http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/users/signup").permitAll()
-                .anyRequest().permitAll()
-        );
+                        .requestMatchers("/api/users/signup", "/api/users/login").permitAll()
+                .anyRequest().authenticated()
+        )
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
