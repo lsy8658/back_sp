@@ -1,4 +1,19 @@
 package com.example.demo.dto;
 
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
 public class BoardDTO {
+    private Long id;
+    private String boardWriter;
+    public String boardPass;
+    private String boardTitle;
+    private String boardContents;
+    private int boardHits;
+    private String boardCreatedAt;
 }
